@@ -1,17 +1,93 @@
 
-$primaryFontColor: #4c4c4c;
+$blue: #168eea;
+$coral: #ee4f4f;
+$cream: #fff9ea;
+$green: #76b852;
+$black: #323b43;
+$grey: #59626a;
+$white: #FFF;
+$lightBlue: #a1d1f6;
+
+
+$logoFont: 'Roboto', sans-serif;
+$slabFont: 'Roboto Slab', serif;
+
 
 body {
-	color: $primaryFontColor;
+	color: $black;
 }
 
-#app-logo {
-	text-transform: uppercase;
-	text-align: center;
+#fixed-logo {
+	background-color: $white;
+	width: 100%;
+	height: 6em;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 9999;
+	position: fixed;
+	border-bottom: 2px solid $lightBlue;
+
+
+	#logo-text {
+		font-family: $logoFont;
+		color: $blue;
+		font-weight: 500;
+		font-size: 2.5em;
+		margin-left: 50px;
+		text-transform: uppercase;
+		margin-top: 20px;
+	}
+
+	#logo-border {
+		border: 4px solid $blue;
+		padding: 1px 18px;
+	}
 }
+
+
+#hero-img {
+	background-image: linear-gradient(rgba(22, 124, 234, 0.7), rgba(22, 124, 234, 0.7)), url("../images/bar.jpeg");
+	padding: 11em 0;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center center;
+	position: relative;	
+
+	#header-container {
+		margin: 0 auto;
+		text-align: center;
+		width: 60%;
+	}
+
+	#hero-title {
+		font-family: $logoFont;
+		color: $white;
+		font-weight: 400;
+		font-size: 2.5em;
+		text-transform: uppercase;
+	}
+
+	#title-border {
+		border: 3px solid $white;
+		padding: 1px 18px;
+	}
+
+	#hero-description {
+		font-family: $slabFont;
+		color: $white;
+		opacity: .9;
+	}
+
+	#hero-icon {
+		opacity: .9;
+	}
+}
+
 
 #icon-credit {
 	margin-top: 400px;
 	font-size: .5em;
 	text-align: center;
 }
+
