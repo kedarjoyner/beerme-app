@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+ 	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Latest compiled and minified bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<link rel="stylesheet" type="text/css" href="css/normalize.css">
 	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500,700' rel='stylesheet' type='text/css'>
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300' rel='stylesheet' type='text/css'>
-	<meta charset="UTF-8">
+
 	<title>Beer Me App</title>
 </head>
-
 <body>
 
 <div id="fixed-logo">
@@ -18,19 +23,35 @@
 <header id="hero-img">
 	<div id="header-container">
 		<img id="hero-icon" src="images/beer-white.png" alt="Two beer glasses clinking" height="200" width="340">
-		<p id="hero-description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+		<p id="hero-description">Discover more about about the beer you drink! Beer Me allows you to search for different craft beers from around the world and unlocks interesting facts about each one. What beers have you enjoyed lately?</p>
 	</div>
 </header>
 
+<!-- Search Input !-->
+<section id="search">
+	  <div class="col-lg-6">
+	    <div class="input-group">
+	      <input type="text" id="read-search" class="form-control" placeholder="Enter the name of the beer you're looking for...">
+	      <span class="input-group-btn">
+	        <button id="button-search" class="btn btn-default btn-style" type="button">
+	        	<span class="glyphicon glyphicon-search">
+	        	</span>
+			</button>
+	      </span>
+	    </div>
+	  </div>
+	</div>
+</section>
 
-
-
+<!-- Footer !-->
 
 <footer>
 	<div id="icon-credit">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a>             is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
 </footer>
 
 
-	
+<!-- JavaScript tags !-->
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="js/app.js"></script>	
 </body>
 </html>
