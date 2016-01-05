@@ -4,28 +4,34 @@ $(document).ready(function() {
 
 	$("#button-search").click(function() {
 		var userInput = $("#read-search").val(); //capture user input
-		$("#read-search").val(""); 
+		$("#read-search").val(""); // restore user input to placeholder text
 		getRequest(userInput);		
 	});
-
-
 });
 
-
 function getRequest(userInput) {
-	var params = {
 
-		//q: format,
+	var params = {
 		key: "859bf6f8fdcf9f9cd2b69cdf21253a12",
 		name: userInput
 	}
 
-	var url = "http://api.brewerydb.com/v2/beers"; //endpoint URL
-
-	$.getJSON(url, params, function(data) { // Data is the "variable" defined to store the information from the server.
-    	console.log(data);
-  	});
+	$.ajax({
+		url: 'http://api.brewerydb.com/v2/beers',
+		data: params,
+		dataType: 'json',
+		type: 'GET'
+	}).done(function(data) {
+		console.log(data);
+	})
 }
+
+
+
+
+
+
+//function showResults(results, function(index, ))
 
 
 
