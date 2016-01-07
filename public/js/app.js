@@ -1,7 +1,7 @@
 
 $(document).ready(function() {
 	console.log("Is this thing on?");
-	$("#results-container").hide();
+	$(".results-template").hide();
 
 	$("#button-search").click(function() {
 		var userInput = $("#read-search").val(); //capture user input
@@ -26,23 +26,37 @@ function getRequest(userInput) {
 		dataType: 'json',
 		type: 'GET'
 	}).done(function(data) {
-		//console.log(data);
-		showResults(data);
+		showBeerResults(data);
 	})
 }
 
-function showResults(results) {
+function showBeerResults(results) {
 	var peeledResults = results.data;
-	//create variables of items wants to display
+	var brewery
 	console.log(results.data);
-	$.each(peeledResults, function(i, item) {
+
+	// iterate through results and append to page
+	$.each(peeledResults, function(index, item) {
 		var name = item.name;
-		console.log(item.name);
-		$("#results-container").show();
-		$(".results").append("<p class='result-p'>" + name + "</p>");
+		var abv = item.abv;
+		var category = item.style.category.name;
+		var description = item.style.description;
+		var breweryName = item.breweries;
+				$.each(breweryName, function(index, breweries) {
+					console.log(breweries.name);
+				});
+		console.log(name);
+		console.log(description);
+		console.log(category);
 	});
 }
 
+
+
+
+// var answererElem = result.find('.profile-link a');
+// 	answererElem.attr( 'href', answerer.user.link );
+// 	answererElem.text( answerer.user.link );
 
 // // Set the question properties in result
 

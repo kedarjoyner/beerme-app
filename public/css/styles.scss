@@ -1,12 +1,14 @@
 
 $blue: #168eea;
+$lightBlue: #a1d1f6;
 $coral: #ee4f4f;
 $cream: #fff9ea;
 $green: #76b852;
 $black: #323b43;
 $grey: #59626a;
+$lightGrey: #e6e6e6;
 $white: #FFF;
-$lightBlue: #a1d1f6;
+
 
 
 $logoFont: 'Roboto', sans-serif;
@@ -83,13 +85,13 @@ $slabFont: 'Roboto Slab', serif;
 #search {
 	margin: 0 auto;
 	width: 70%;
+	max-width: 600px;
 	margin-top: 100px;
 
 	.form-style, .btn-style {
 		width: 100%;	
 		height: 5em;
 	}
-
 
 	.btn-style {
 		width: 6em;
@@ -108,28 +110,37 @@ $slabFont: 'Roboto Slab', serif;
 
 }
 
-#results-container {
-	margin: 0 auto;
-	width: 85%;
-	max-width: 650px;
-
-	.results {
-		padding: 5px;
-		margin: 0 auto;
-		margin-top: 60px;
-		height: 20em;
-		color: $white;
+#result-counter {
+		text-align: center;
+		color: $black;
+		margin-top: 200px;
 	}
 
-	.result-p {
-		padding: 15px;
+.results-template {
+	margin: 0 auto;
+	width: 85%;
+	max-width: 800px;
+
+
+	.results {
+		padding: 40px;
+		margin: 0 auto;
 		margin-top: 10px;
 		margin-bottom: 10px;
+		height: 20em;
+		color: $white;
 		background-color: $blue;
 	}
 
-	.result-p:nth-of-type(2n) {
-  		background-color: #e6e6e6;
+	// .result-p {
+	// 	padding: 40px;
+	// 	margin-top: 10px;
+	// 	margin-bottom: 10px;
+	// 	background-color: $blue;
+	// }
+
+	.result:nth-of-type(2n) {
+  		background-color: $lightGrey;
   		color: $black;
 	}
 }
@@ -139,5 +150,3 @@ $slabFont: 'Roboto Slab', serif;
 	font-size: .5em;
 	text-align: center;
 }
-
-
