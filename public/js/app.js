@@ -51,17 +51,17 @@ function showBeerResults(results) {
 				console.log(item.website);
 			});
 		var template =	'<dl class="results">' +
-			'<dt>Name</dt>' +
+			'<dt>Beer Name:</dt>' +
 				'<dd class="name">'+ name +'</dd>' +
-			'<dt>Abv<dt>' +
+			'<dt>Abv:<dt>' +
 				'<dd class="abv">'+ abv +'</dd>' +
-			'<dt>Catgory</dt>' +
+			'<dt>Catgory:</dt>' +
 				'<dd class="category">'+ category +'</dd>' +
-			'<dt>Date Created</dt>' +
+			'<dt>Date Created:</dt>' +
 				'<dd class="created">' + created +'</dd>' +
-			'<dt>Description</dt>' +
+			'<dt>Description:</dt>' +
 				'<dd class="description">' + description +'</dd>' +
-			'<dt>Brewery Name</dt>' +
+			'<dt>Brewery Name:</dt>' +
 				'<dd class="brewery-name">'+ breweryName +'</dd>' 
 		'</dl>';
 
