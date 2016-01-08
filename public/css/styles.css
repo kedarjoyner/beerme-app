@@ -79,12 +79,14 @@
     margin: 0 auto;
     margin-top: 10px;
     margin-bottom: 10px;
-    height: 20em;
+    height: 100%;
     color: #FFF;
     background-color: #168eea; }
-  .results-template .result:nth-of-type(2n) {
+  .results-template .results:nth-of-type(2n) {
     background-color: #e6e6e6;
     color: #323b43; }
+  .results-template .hidden {
+    display: none; }
 
 #icon-credit {
   margin-top: 400px;
