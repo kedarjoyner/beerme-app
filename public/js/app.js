@@ -16,7 +16,8 @@ function getRequest(userInput) {
 		q: userInput,
 		//name: userInput,
 		withBreweries: "Y",
-		type: "beer"
+		type: "beer",
+		order: name
 	}
 
 	$.ajax({
@@ -44,12 +45,9 @@ function showBeerResults(results) {
 		var abv = item.abv;
 		var category = item.style.category.name;
 		var created = item.createDate;
+		// var breweryName = displayBreweries(item.breweries);
+		// var breweryWebsite = displayBreweries(item.breweries);
 		var description = item.style.description;
-		var breweryName = item.breweries;
-			$.each(breweryName, function(index, item) {
-				console.log(item.name)
-				console.log(item.website);
-			});
 		var template =	'<dl class="results">' +
 			'<dt>Beer Name:</dt>' +
 				'<dd class="name">'+ name +'</dd>' +
@@ -60,18 +58,27 @@ function showBeerResults(results) {
 			'<dt>Date Created:</dt>' +
 				'<dd class="created">' + created +'</dd>' +
 			'<dt>Description:</dt>' +
-				'<dd class="description">' + description +'</dd>' +
-			'<dt>Brewery Name:</dt>' +
-				'<dd class="brewery-name">'+ breweryName +'</dd>' 
-		'</dl>';
+				'<dd class="description">' + description +'</dd>' 
+				+ displayBreweries(item.breweries);
+			'</dl>'; 
 
-			console.log(template);
 			$(".results-template").removeClass("hidden");
 			$(".results-template .col-lg-12").append(template);
 	});
 }
 
+// how come I don't need (index, item) below?
 
+var displayBreweries = function(breweries) {
+	var breweriesTemplate = "";
+	$.each(breweries, function(index, item) {
+		breweriesTemplate = breweriesTemplate + '<dt>Brewery Name:</dt>' +
+				'<dd class="brewery-name">'+ item.name +'</dd>' 
+			+ '<dt>Brewery Website:</dt>' +
+				'<dd class="brewery-website"><a href="' + item.website + '"target="_blank">'+ item.website +'</a><dd>';
+	});
+	return breweriesTemplate;
+}
 
 
 
