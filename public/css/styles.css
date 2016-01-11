@@ -102,8 +102,11 @@
   .results-template a:hover {
     color: #a1d1f6; }
 
+#search-result {
+  color: #168eea; }
+
 #icon-credit {
-  margin-top: 400px;
+  margin-top: 100px;
   font-size: .5em;
   text-align: center; }
 
