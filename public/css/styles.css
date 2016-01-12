@@ -59,9 +59,13 @@
     width: 6em;
     background-color: #168eea;
     border: #168eea; }
-  #search .glyphicon-search {
+  #search #button-search {
+    margin-right: 10px; }
+  #search .glyphicon-search, #search .glyphicon-refresh {
     font-size: 2em;
     color: #FFF; }
+  #search .btn {
+    border-radius: 0; }
   #search .column-style {
     width: 100%; }
 

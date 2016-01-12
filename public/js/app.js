@@ -28,23 +28,23 @@ function getRequest(userInput) {
 		//update number of search results spans
 		var numberOfResults = $("dl").length;
 
+		// create objects to fix result tenses
 		var resultOptions = {
-			thereIs: 'There is',
-			result: 'result',
-			thereAre: 'There are',
-			results: 'results'
+			thereIs: 'There is ',
+			result: 'result for: ',
+			thereAre: 'There are ',
+			results: 'results for: '
 		};
 
-		console.log(numberOfResults);
 		$("#result-number").text(numberOfResults);
 		if (numberOfResults > 1) {				
 			console.log(numberOfResults);
 			$("#result-counter #there").text(resultOptions.thereAre);
-			$("#result-counter #results").text(resultOptions.results);
-		} else {
+			$("#result-counter #result").text(resultOptions.results);
+		} 
+		else {
 			$("#result-counter #there").text(resultOptions.thereIs);
-			$("#result-counter #results").text(resultOptions.result);
-			}
+			$("#result-counter #result").text(resultOptions.result);
 		}
 		$("#search-result").text(userInput);
 		//console.log(data);
@@ -98,8 +98,6 @@ var displayBreweries = function(breweries) {
 	});
 	return breweriesTemplate;
 }
-
-
 
 
 //http://api.brewerydb.com/v2/beers?name=Fantasy%20Factory&key=859bf6f8fdcf9f9cd2b69cdf21253a12
