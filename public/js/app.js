@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	console.log("Is this thing on?");
-	$("#button-search").submit(function(e) {
+	$("#button-search").click(function(e) {
 		e.preventDefault();
 
 		//clear previous results
@@ -17,7 +17,7 @@ $(document).ready(function() {
 	// how come I don't need to add userInput here again?
 	$("#read-search").keyup(function(event){
 	    if(event.keyCode == 13){
-	        $("#button-search").submit();
+	        $("#button-search").click();
 
 	        //clear previous results
 			$(".results-template .col-lg-12").html("");
