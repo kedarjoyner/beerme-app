@@ -83,6 +83,7 @@ $slabFont: 'Roboto Slab', serif;
 
 	#hero-icon {
 		opacity: .9;
+		margin-bottom: 40px;
 	}
 }
 
@@ -94,8 +95,7 @@ $slabFont: 'Roboto Slab', serif;
 	width: 70%;
 	max-width: 600px;
 	margin-top: 150px;
-	margin-bottom: 350px;
-
+	margin-bottom: 150px;
 
 	.form-style, .btn-style {
 		width: 100%;	
@@ -124,7 +124,6 @@ $slabFont: 'Roboto Slab', serif;
 	.column-style {
 		width: 100%;
 	}
-
 }
 
 
@@ -133,7 +132,7 @@ $slabFont: 'Roboto Slab', serif;
 #result-counter {
 		text-align: center;
 		color: $black;
-		margin-top: 200px;
+		margin-top: 50px;
 	}
 
 .results-template {

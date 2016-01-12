@@ -1,15 +1,26 @@
 $(document).ready(function() {
 	console.log("Is this thing on?");
-	$("#button-search").click(function() {
-		var userInput = $("#read-search").val(); //capture user input
-		$("#read-search").val(""); // restore user input to placeholder text
+	$("#button-search").submit(function(e) {
+		e.preventDefault();
+
+		//clear previous results
+		$(".results-template .col-lg-12").html("");
+
+		//capture user input
+		var userInput = $("#read-search").val();
+
+		// restore user input to placeholder text
+		$("#read-search").val(""); 
 		getRequest(userInput);		
 	});
 
 	// how come I don't need to add userInput here again?
 	$("#read-search").keyup(function(event){
 	    if(event.keyCode == 13){
-	        $("#button-search").click();
+	        $("#button-search").submit();
+	        
+	        //clear previous results
+			$(".results-template .col-lg-12").html("");
     	}
 	});
 });
@@ -90,9 +101,8 @@ function showBeerResults(results) {
 				+ displayBreweries(item.breweries) +
 			'</dl>';
 
-			//remove hidden cass, append template
+			//remove hidden class, append template
 			$(".results-template").removeClass("hidden").fadeIn(300);
-			refreshSearch();
 			$(".results-template .col-lg-12").append(template);
 	});
 }
@@ -112,12 +122,20 @@ var displayBreweries = function(breweries) {
 
 function refreshSearch() {
 	$("#button-refresh").click(function() {
-	$("#read-search").val("");
-	$(".results-template").fadeOut(300);
-	$("#result-counter-container").fadeOut(300);
+		$("#read-search").val("");
+		$(".results-template").fadeOut(300);
+		$("#result-counter-container").fadeOut(300);
 	});
 }
 refreshSearch();
+
+
+// $('.unanswered-getter').submit( function(e){
+// 		e.preventDefault();
+// 		// zero out results if previous search has run
+// 		$('.results').html('');
+
+
 
 // 		var template = "";
 
