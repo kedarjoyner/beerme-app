@@ -27,7 +27,25 @@ function getRequest(userInput) {
 
 		//update number of search results spans
 		var numberOfResults = $("dl").length;
+
+		var resultOptions = {
+			thereIs: 'There is',
+			result: 'result',
+			thereAre: 'There are',
+			results: 'results'
+		};
+
+		console.log(numberOfResults);
 		$("#result-number").text(numberOfResults);
+		if (numberOfResults > 1) {				
+			console.log(numberOfResults);
+			$("#result-counter #there").text(resultOptions.thereAre);
+			$("#result-counter #results").text(resultOptions.results);
+		} else {
+			$("#result-counter #there").text(resultOptions.thereIs);
+			$("#result-counter #results").text(resultOptions.result);
+			}
+		}
 		$("#search-result").text(userInput);
 		//console.log(data);
 	})
