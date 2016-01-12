@@ -18,7 +18,7 @@ $(document).ready(function() {
 	$("#read-search").keyup(function(event){
 	    if(event.keyCode == 13){
 	        $("#button-search").submit();
-	        
+
 	        //clear previous results
 			$(".results-template .col-lg-12").html("");
     	}
@@ -164,7 +164,3 @@ refreshSearch();
 // 			$(".results-template .col-lg-12").append(template);
 // 	});
 // }
-
-
-//http://api.brewerydb.com/v2/beers?name=Fantasy%20Factory&key=859bf6f8fdcf9f9cd2b69cdf21253a12
-//api requires CORS, not allowing me to grab data from JSON. Link works in browser.
