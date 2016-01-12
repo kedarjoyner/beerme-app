@@ -5,6 +5,13 @@ $(document).ready(function() {
 		$("#read-search").val(""); // restore user input to placeholder text
 		getRequest(userInput);		
 	});
+
+	// how come I don't need to add userInput here again?
+	$("#read-search").keyup(function(event){
+	    if(event.keyCode == 13){
+	        $("#button-search").click();
+    	}
+	});
 });
 
 function getRequest(userInput) {
@@ -14,7 +21,6 @@ function getRequest(userInput) {
 		q: userInput,
 		withBreweries: "Y",
 		type: "beer",
-		order: name
 	}
 
 	$.ajax({
@@ -36,6 +42,7 @@ function getRequest(userInput) {
 			results: 'results for: '
 		};
 
+		// update search result display
 		$("#result-number").text(numberOfResults);
 		if (numberOfResults > 1) {				
 			console.log(numberOfResults);
@@ -47,11 +54,13 @@ function getRequest(userInput) {
 			$("#result-counter #result").text(resultOptions.result);
 		}
 		$("#search-result").text(userInput);
+		$("#result-counter-container").fadeIn(300);
 		//console.log(data);
 	})
 }
 
 function showBeerResults(results) {
+
 	// data is defined by api. results turns into what user's input. ".data" allows access into object
 	var peeledResults = results.data;
 	console.log(results.data);
@@ -78,26 +87,65 @@ function showBeerResults(results) {
 				'<dd class="created">' + created +'</dd>' +
 			'<dt>Description:</dt>' +
 				'<dd class="description">' + description +'</dd>' 
-				+ displayBreweries(item.breweries);
+				+ displayBreweries(item.breweries) +
 			'</dl>';
 
 			//remove hidden cass, append template
-			$(".results-template").removeClass("hidden");
+			$(".results-template").removeClass("hidden").fadeIn(300);
+			refreshSearch();
 			$(".results-template .col-lg-12").append(template);
 	});
 }
 
+
 // how come I don't need (index, item) below?
 var displayBreweries = function(breweries) {
 	var breweriesTemplate = "";
-	$.each(breweries, function(index, item) {
+	$.each(breweries, function(index, breweries) {
 		breweriesTemplate = breweriesTemplate + '<dt>Brewery Name:</dt>' +
-				'<dd class="brewery-name">'+ item.name +'</dd>' 
+				'<dd class="brewery-name">'+ breweries.name +'</dd>' 
 			+ '<dt>Brewery Website:</dt>' +
-				'<dd class="brewery-website"><a href="' + item.website + '"target="_blank">'+ item.website +'</a><dd>';
+				'<dd class="brewery-website"><a href="' + breweries.website + '"target="_blank">'+ breweries.website +'</a><dd>';
 	});
 	return breweriesTemplate;
 }
+
+function refreshSearch() {
+	$("#button-refresh").click(function() {
+	$("#read-search").val("");
+	$(".results-template").fadeOut(300);
+	$("#result-counter-container").fadeOut(300);
+	});
+}
+refreshSearch();
+
+// 		var template = "";
+
+// 		// append items to page using a template
+// 		$.each(item.breweries, function(index, brewery) {
+// 			template +=	'<dl class="results">' +
+// 			'<dt>Beer Name:</dt>' +
+// 				'<dd class="name">'+ name +'</dd>' +
+// 			'<dt>Abv:<dt>' +
+// 				'<dd class="abv">'+ abv +'</dd>' +
+// 			'<dt>Category:</dt>' +
+// 				'<dd class="category">'+ category +'</dd>' +
+// 			'<dt>Date Created:</dt>' +
+// 				'<dd class="created">' + created +'</dd>' +
+// 			'<dt>Description:</dt>' +
+// 				'<dd class="description">' + description +'</dd>' +
+// 			'<dt>Brewery Name:</dt>' +
+// 				'<dd class="brewery-name">' + brewery.name + '</dd>' +
+// 			'<dt>Website:</dt>' +
+// 				'<dd class="website">' + brewery.website +'</dd>'
+// 			+'</dl>';
+// 			});
+
+// 			//remove hidden cass, append template
+// 			$(".results-template").removeClass("hidden");
+// 			$(".results-template .col-lg-12").append(template);
+// 	});
+// }
 
 
 //http://api.brewerydb.com/v2/beers?name=Fantasy%20Factory&key=859bf6f8fdcf9f9cd2b69cdf21253a12
