@@ -5,12 +5,13 @@ $(document).ready(function() {
 
 		//clear previous results
 		$(".results-template .col-lg-12").html("");
+		$("#result-number").html(""); 
 
 		//capture user input
 		var userInput = $("#read-search").val();
 
 		// restore user input to placeholder text
-		$("#read-search").val(""); 
+		$("#read-search").val("");
 		getRequest(userInput);		
 	});
 
@@ -21,6 +22,7 @@ $(document).ready(function() {
 
 	        //clear previous results
 			$(".results-template .col-lg-12").html("");
+			$("#result-number").html(""); 
     	}
 	});
 });
@@ -85,10 +87,21 @@ function showBeerResults(results) {
 		var category = item.style.category.name;
 		var created = item.createDate;
 		var description = item.style.description;
-
-		// append items to page using a template
-		var template =	'<dl class="results">' +
-			'<dt>Beer Name:</dt>' +
+		var template = '<dl class="results">';
+			if (!abv) {
+				abv = "Not Available";
+			}
+			if (!category) {
+				category = "Not Available";
+			}
+			if (!created) {
+				category = "Not Available";
+			}
+			if (!description) {
+				description = "Not Available";
+			}
+		//append items to page using a template
+		template += '<dt>Beer Name:</dt>' +
 				'<dd class="name">'+ name +'</dd>' +
 			'<dt>Abv:<dt>' +
 				'<dd class="abv">'+ abv +'</dd>' +
@@ -100,7 +113,6 @@ function showBeerResults(results) {
 				'<dd class="description">' + description +'</dd>' 
 				+ displayBreweries(item.breweries) +
 			'</dl>';
-
 			//remove hidden class, append template
 			$(".results-template").removeClass("hidden").fadeIn(300);
 			$(".results-template .col-lg-12").append(template);
@@ -112,10 +124,16 @@ function showBeerResults(results) {
 var displayBreweries = function(breweries) {
 	var breweriesTemplate = "";
 	$.each(breweries, function(index, breweries) {
-		breweriesTemplate = breweriesTemplate + '<dt>Brewery:</dt>' +
-				'<dd class="brewery-name"><a href="' + breweries.website + '"target="_blank">' + breweries.name +'</dd>' 
-			//+ '<dt>Brewery Website:</dt>' +
-				//'<dd class="brewery-website"><a href="' + breweries.website + '"target="_blank">'+ breweries.website +'</a><dd>';
+		var breweryWebsite = breweries.website;
+		var breweryName = breweries.name;
+		if (!breweryWebsite) {
+			breweryWebsite = "Not Available";	
+		}
+		if (!breweryName) {
+			breweryName = "Not Available";	
+		}
+		breweriesTemplate += '<dt>Brewery:</dt>' +
+				'<dd class="brewery-name"><a href="' + breweryWebsite + '"target="_blank">' + breweryName +'</dd>' 
 	});
 	return breweriesTemplate;
 }
