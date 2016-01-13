@@ -112,10 +112,10 @@ function showBeerResults(results) {
 var displayBreweries = function(breweries) {
 	var breweriesTemplate = "";
 	$.each(breweries, function(index, breweries) {
-		breweriesTemplate = breweriesTemplate + '<dt>Brewery Name:</dt>' +
-				'<dd class="brewery-name">'+ breweries.name +'</dd>' 
-			+ '<dt>Brewery Website:</dt>' +
-				'<dd class="brewery-website"><a href="' + breweries.website + '"target="_blank">'+ breweries.website +'</a><dd>';
+		breweriesTemplate = breweriesTemplate + '<dt>Brewery:</dt>' +
+				'<dd class="brewery-name"><a href="' + breweries.website + '"target="_blank">' + breweries.name +'</dd>' 
+			//+ '<dt>Brewery Website:</dt>' +
+				//'<dd class="brewery-website"><a href="' + breweries.website + '"target="_blank">'+ breweries.website +'</a><dd>';
 	});
 	return breweriesTemplate;
 }
