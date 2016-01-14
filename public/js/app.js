@@ -91,6 +91,9 @@ function showBeerResults(results) {
 			if (!abv) {
 				abv = "Not Available";
 			}
+			if (!item.style){
+				category = "Not Available";
+			}
 			if (!category) {
 				category = "Not Available";
 			}
