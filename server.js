@@ -23,10 +23,8 @@ app.get('/breweries/:keyword', function (req, res) {
 
 app.get('/search/:keyword', function (req, res) {
 	var keywordName = req.params.keyword
-	console.log(req.url);
-	// URL encoding strings
 	brewdb.search.beers({ q: keywordName, withBreweries: "Y" }, function(error, data) {
-	res.json(data) //terminates search
+	res.json(data) 
 	});
 });
 
