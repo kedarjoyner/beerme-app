@@ -3,7 +3,7 @@ var app = express();
 app.use(express.static('public'));
 
 
-var BreweryDb = require('brewerydb-node');
+var BreweryDb = require('node-brewerydb');
 var brewdb = new BreweryDb('859bf6f8fdcf9f9cd2b69cdf21253a12');
 
 app.get('/beers', function (req, res) {
