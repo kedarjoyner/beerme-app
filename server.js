@@ -7,7 +7,7 @@ var BreweryDb = require('node-brewerydb');
 var brewdb = new BreweryDb('859bf6f8fdcf9f9cd2b69cdf21253a12');
 
 app.get('/beers', function (req, res) {
-  brewdb.search.beers({ q: "dogfish" }, function(error, data) {
+  	brewdb.search.beers({ q: "dogfish" }, function(error, data) {
   	res.json(data) //terminates search
   });
 });
@@ -26,7 +26,7 @@ app.get('/search/:keyword', function (req, res) {
 	console.log(req.url);
 	// URL encoding strings
 	brewdb.search.beers({ q: keywordName, withBreweries: "Y" }, function(error, data) {
-	  	res.json(data) //terminates search
+	res.json(data) //terminates search
 	});
 });
 
