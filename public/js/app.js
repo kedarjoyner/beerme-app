@@ -29,23 +29,24 @@ $(document).ready(function() {
 
 function getRequest(userInput) {
 
-	var params = {
-		key: "859bf6f8fdcf9f9cd2b69cdf21253a12",
-		q: userInput,
-		withBreweries: "Y",
-		type: "beer",
-	}
+	// var params = {
+	// 	key: "859bf6f8fdcf9f9cd2b69cdf21253a12",
+	// 	q: userInput,
+	// 	withBreweries: "Y",
+	// 	type: "beer",
+	// }
 
-	$.ajax({
-		url: 'http://api.brewerydb.com/v2/search',
-		data: params,
-		dataType: 'json',
-		type: 'GET'
-	}).done(function(data) {
+	// $.ajax({
+	// 	url: 'http://api.brewerydb.com/v2/search',
+	// 	data: params,
+	// 	dataType: 'json',
+	// 	type: 'GET'
+	$.getJSON('/search/' + userInput).done(function(data) {
 		showBeerResults(data);
 
 		//update number of search results spans
-		var numberOfResults = $("dl").length;
+		var numberOfResults = data.length;
+		console.log(numberOfResults);
 
 		// create objects to fix result tenses
 		var resultOptions = {
@@ -73,18 +74,23 @@ function getRequest(userInput) {
 }
 
 function showBeerResults(results) {
-
+	console.log(results);
 	// data is defined by api. results turns into what user's input. ".data" allows access into object
-	var peeledResults = results.data;
-	console.log(results.data);
+	// var peeledResults = results.data;
+	// console.log(results.data);
 
 	// iterate through results and append to page
 	// index keeps track of position
 	// item can be named anything. item is what allows us to access the info inside the object
-	$.each(peeledResults, function(index, item) {
+	$.each(results, function(index, item) {
 		var name = item.name;
 		var abv = item.abv;
-		var category = item.style.category.name;
+		var category = "";
+			if (!item.style){
+				category = "Not Available";
+			} else {
+				category = item.style.category.name;
+			}
 		var created = item.createDate;
 		var description = item.style.description;
 		var template = '<dl class="results">';
@@ -103,6 +109,7 @@ function showBeerResults(results) {
 			if (!description) {
 				description = "Not Available";
 			}
+
 		//append items to page using a template
 		template += '<dt>Beer Name:</dt>' +
 				'<dd class="name">'+ name +'</dd>' +
