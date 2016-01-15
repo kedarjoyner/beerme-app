@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "engines": {
+  "node": "4.2.4",
+  "npm": "2.14.12"
+  },
   "scripts": {
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,9 +28,5 @@
   },
   "devDependencies": {
     "nodemon": "^1.8.1"
-  },
-    "engines": {
-    "node": "4.2.4",
-    "npm": "2.14.12"
   }
 }
