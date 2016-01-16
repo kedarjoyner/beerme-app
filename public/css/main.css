@@ -48,29 +48,27 @@
     opacity: .9;
     margin-bottom: 40px; }
 
-#search {
+.search {
   margin: 0 auto;
   width: 70%;
   max-width: 600px;
   margin-top: 150px;
-  margin-bottom: 300px; }
-  #search .input-group {
-    margin: 0 auto; }
-  #search .form-style, #search .btn-style {
+  margin-bottom: 150px; }
+  .search .form-style, .search .btn-style {
     width: 100%;
     height: 5em; }
-  #search .btn-style {
+  .search .btn-style {
     width: 6em;
     background-color: #168eea;
     border: #168eea; }
-  #search #button-search {
+  .search #button-search {
     margin-right: 10px; }
-  #search .glyphicon-search, #search .glyphicon-refresh {
+  .search .glyphicon-search, .search .glyphicon-refresh {
     font-size: 2em;
     color: #FFF; }
-  #search .btn {
+  .search .btn {
     border-radius: 0; }
-  #search .column-style {
+  .search .column-style {
     width: 100%;
     margin: 0 auto; }
 
