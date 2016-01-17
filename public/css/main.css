@@ -53,12 +53,13 @@
   width: 70%;
   max-width: 600px;
   margin-top: 150px;
-  margin-bottom: 150px; }
-  .search .form-style, .search .btn-style {
+  height: 100px; }
+  .search .form-style {
     width: 100%;
     height: 5em; }
   .search .btn-style {
     width: 6em;
+    height: 5em;
     background-color: #168eea;
     border: #168eea; }
   .search #button-search {
@@ -74,8 +75,7 @@
 
 #result-counter {
   text-align: center;
-  color: #323b43;
-  margin-top: 50px; }
+  color: #323b43; }
 
 .results-template {
   margin: 0 auto;
@@ -83,7 +83,7 @@
   max-width: 800px; }
   .results-template .results {
     font-size: 1.5em;
-    padding: 40px;
+    padding: 30px;
     margin: 0 auto;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -112,9 +112,11 @@
 #search-result {
   color: #168eea; }
 
-#icon-credit {
-  font-size: .5em;
-  text-align: center;
-  margin-bottom: 30px; }
+footer {
+  margin: 0 auto; }
+  footer #icon-credit {
+    font-size: .5em;
+    text-align: center;
+    margin-bottom: 30px; }
 
 /*# sourceMappingURL=main.css.map */
