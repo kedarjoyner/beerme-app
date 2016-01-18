@@ -30,7 +30,7 @@ $(document).ready(function() {
 function getRequest(userInput) {
 
 	// var params = {
-	// 	key: "859bf6f8fdcf9f9cd2b69cdf21253a12",
+	// 	key: insert key here
 	// 	q: userInput,
 	// 	withBreweries: "Y",
 	// 	type: "beer",
@@ -129,8 +129,6 @@ function showBeerResults(results) {
 	});
 }
 
-
-// how come I don't need (index, item) below?
 var displayBreweries = function(breweries) {
 	var breweriesTemplate = "";
 	$.each(breweries, function(index, breweries) {
