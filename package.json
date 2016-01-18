@@ -19,7 +19,7 @@
   "homepage": "https://github.com/kedarjoyner/beerme-app#readme",
   "dependencies": {
     "express": "^4.13.3",
-    "node-brewerydb": "^0.1.0", 
+    "brewerydb-node": "^0.1.0", 
     "nodemon": "^1.8.1"
   },
   "devDependencies": {
