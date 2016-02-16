@@ -80,10 +80,11 @@
 .results-template {
   margin: 0 auto;
   width: 85%;
+  padding: 0;
   max-width: 800px; }
   .results-template .results {
     font-size: 1.5em;
-    padding: 30px;
+    padding: 20px;
     margin: 0 auto;
     margin-top: 10px;
     margin-bottom: 20px;
